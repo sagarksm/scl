@@ -1,18 +1,17 @@
 services:
+  scl-blue:
+    build: ./app
+    image: scl
+    container_name: scl-blue
 
-scl-blue:
-build: ./app
-image: scl
-container_name: scl-blue
+  scl-green:
+    image: scl
+    container_name: scl-green
 
-scl-green:
-image: scl
-container_name: scl-green
-
-nginx:
-image: nginx
-container_name: scl-proxy
-ports:
-- "80:80"
-volumes:
-- ./nginx/nginx.conf:/etc/nginx/nginx.conf
+  nginx:
+    image: nginx
+    container_name: scl-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
