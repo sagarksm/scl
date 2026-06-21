@@ -50,7 +50,7 @@ pipeline {
         stage('Switch Traffic') {
             steps {
                 sh '''
-                sed -i 's/scl-blue/scl-green/g' nginx/nginx.conf
+                sed -i 's/scl-blue/scl-blue/g' nginx/nginx.conf
 
                 docker exec scl-proxy nginx -t
                 docker exec scl-proxy nginx -s reload
